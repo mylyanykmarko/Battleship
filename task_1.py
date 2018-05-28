@@ -1,4 +1,9 @@
 def read_field(file_name):
+    """
+    Reads information from file
+    :param file_name: str
+    :return: dict()
+    """
 
     f = open(file_name, 'r', encoding='utf-8', errors='ignore')
     data = dict()
@@ -14,6 +19,12 @@ def read_field(file_name):
 
 
 def has_ship(field, coordinates):
+    """
+    Checks if in some position is ship
+    :param field: dict()
+    :param coordinates: tuple()
+    :return: boolean
+    """
 
     if field[coordinates] == '*':
         return True
@@ -21,6 +32,12 @@ def has_ship(field, coordinates):
 
 
 def ship_size(field, coordinates):
+    """
+    Returns ship size
+    :param field: dict()
+    :param coordinates: tuple()
+    :return: int()
+    """
     ship_len = 0
 
     koor1 = coordinates[0]
@@ -49,6 +66,11 @@ def ship_size(field, coordinates):
 
 
 def is_valid(field):
+    """
+    Checks if current field correct(if there are all ships and if they size is ok )
+    :param field: dict()
+    :return: boolean
+    """
     one = 0
     two = 0
     three = 0
@@ -72,10 +94,3 @@ def is_valid(field):
     return False
 
 
-field = read_field("field")
-print(has_ship(field, (4, 10)))
-print(read_field("field"))
-
-print(ship_size(field, (1, 1)))
-
-print(is_valid(field))
